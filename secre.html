@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Secretaria do ADM</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    h2 {
+      color: darkgreen;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #eee;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Secretaria do ADM - Reuniões Registradas</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Data</th>
+        <th>Encarregado</th>
+        <th>Aluno</th>
+        <th>Tipo</th>
+        <th>Disciplina</th>
+        <th>Classe</th>
+        <th>Sala</th>
+        <th>Turno</th>
+      </tr>
+    </thead>
+    <tbody id="lista">
+      <!-- registros aqui -->
+    </tbody>
+  </table>
+
+  <script>
+    const lista = document.getElementById("lista");
+    const reunioes = JSON.parse(localStorage.getItem("reunioesADM")) || [];
+
+    reunioes.forEach(r => {
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td>${r.data}</td>
+        <td>${r.encarregado}</td>
+        <td>${r.aluno}</td>
+        <td>${r.destino}</td>
+        <td>${r.disciplina || "-"}</td>
+        <td>${r.classe || "-"}</td>
+        <td>${r.sala}</td>
+        <td>${r.turno}</td>
+      `;
+      lista.appendChild(tr);
+    });
+  </script>
+
+</body>
+</html>

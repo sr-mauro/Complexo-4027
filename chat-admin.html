@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <title>Admin - Chat de Informações</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: 20px auto;
+      background: #fff;
+      padding: 20px;
+      border: 2px solid coral;
+      border-radius: 10px;
+    }
+    h2 {
+      color: red;
+      text-align: center;
+    }
+    form {
+      margin-bottom: 20px;
+    }
+    textarea {
+      width: 100%;
+      height: 80px;
+      padding: 10px;
+      resize: vertical;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+    button {
+      background-color: aqua;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 23px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    button:hover {
+      background-color: #00cccc;
+    }
+    .mensagem {
+      background-color: #e3f2fd;
+      border-left: 5px solid blue;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      position: relative;
+    }
+    .btn-apagar {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: coral;
+      border: none;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      padding: 2px 8px;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Admin - Chat de Informações</h2>
+
+  <form id="form-mensagem">
+    <textarea id="msg" placeholder="Digite a mensagem..." required></textarea><br>
+    <button type="submit">Enviar Mensagem</button>
+  </form>
+
+  <div id="lista-mensagens"></div>
+
+  <script>
+    const listaMensagens = document.getElementById("lista-mensagens");
+    const formMensagem = document.getElementById("form-mensagem");
+    const inputMsg = document.getElementById("msg");
+
+    // Mostrar mensagens
+    function mostrarMensagens() {
+      listaMensagens.innerHTML = "";
+      let mensagens = JSON.parse(localStorage.getItem("mensagens")) || [];
+      // Mostrar do mais recente para o mais antigo (invertido)
+      mensagens.slice().reverse().forEach((m, i) => {
+        // índice para apagar será do original, então calcular
+        const idxOriginal = mensagens.length - 1 - i;
+
+        const div = document.createElement("div");
+        div.className = "mensagem";
+        div.textContent = m.texto;
+
+        const btnApagar = document.createElement("button");
+        btnApagar.textContent = "Apagar";
+        btnApagar.className = "btn-apagar";
+        btnApagar.onclick = () => apagarMensagem(idxOriginal);
+
+        div.appendChild(btnApagar);
+        listaMensagens.appendChild(div);
+      });
+    }
+
+    // Adicionar mensagem
+    formMensagem.addEventListener("submit", e => {
+      e.preventDefault();
+      const texto = inputMsg.value.trim();
+      if (!texto) return;
+
+      let mensagens = JSON.parse(localStorage.getItem("mensagens")) || [];
+      mensagens.push({ texto, data: new Date().toISOString() });
+      localStorage.setItem("mensagens", JSON.stringify(mensagens));
+
+      inputMsg.value = "";
+      mostrarMensagens();
+    });
+
+    // Apagar mensagem
+    function apagarMensagem(index) {
+      let mensagens = JSON.parse(localStorage.getItem("mensagens")) || [];
+      mensagens.splice(index, 1);
+      localStorage.setItem("mensagens", JSON.stringify(mensagens));
+      mostrarMensagens();
+    }
+
+    window.onload = mostrarMensagens;
+  </script>
+
+</body>
+</html>

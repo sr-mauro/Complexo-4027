@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Eventos do Aluno</title>
+  <style>
+  body{
+    background:aqua;
+  }
+    .evento { background: coral; padding: 10px; margin: 10px 0; border-radius: 5px; }
+  </style>
+</head>
+<body>
+
+  <h2>Eventos Agendados</h2>
+  <div id="lista-eventos"></div>
+
+  <script>
+    function mostrarEventos() {
+      const lista = document.getElementById("lista-eventos");
+      lista.innerHTML = "";
+
+      const eventos = JSON.parse(localStorage.getItem("eventos")) || [];
+
+      eventos.forEach(ev => {
+        const div = document.createElement("div");
+        div.className = "evento";
+        div.innerHTML = `<strong>${ev.titulo}</strong><br>Data: ${ev.data}`;
+        lista.appendChild(div);
+      });
+    }
+
+    window.onload = mostrarEventos;
+  </script>
+
+</body>
+</html>

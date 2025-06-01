@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Galeria - Administrador</title>
+  <style>
+    body {
+      font-family: Arial;
+      padding: 20px;
+      background-color: coral;
+    }
+
+    h2 {
+      text-align: center;
+      color: red;
+    }
+
+    .galeria {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .galeria-item {
+      position: relative;
+    }
+
+    .galeria img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border: 3px solid aqua;
+      border-radius: 10px;
+    }
+
+    .btn-remover {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      background-color: red;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      padding: 5px 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Administrador - Galeria de Fotos</h2>
+
+  <input type="file" id="upload" accept="image/*" multiple>
+  <div class="galeria" id="galeria"></div>
+
+<script>
+  function carregarGaleria() {
+    const galeria = document.getElementById("galeria");
+    galeria.innerHTML = "";
+
+    const fotos = JSON.parse(localStorage.getItem("galeriaFotos")) || [];
+
+    fotos.forEach((foto, index) => {
+      const item = document.createElement("div");
+      item.className = "galeria-item";
+      item.innerHTML = `
+        <img src="${foto}">
+        <button class="btn-remover" onclick="removerFoto(${index})">X</button>
+      `;
+      galeria.appendChild(item);
+    });
+  }
+
+  function removerFoto(index) {
+    const fotos = JSON.parse(localStorage.getItem("galeriaFotos")) || [];
+    fotos.splice(index, 1);
+    localStorage.setItem("galeriaFotos", JSON.stringify(fotos));
+    carregarGaleria();
+  }
+
+  document.getElementById("upload").addEventListener("change", function () {
+    const arquivos = Array.from(this.files);
+    const fotos = JSON.parse(localStorage.getItem("galeriaFotos")) || [];
+    let carregadas = 0;
+
+    arquivos.forEach((file, i) => {
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        fotos.push(e.target.result);
+        carregadas++;
+        if (carregadas === arquivos.length) {
+          localStorage.setItem("galeriaFotos", JSON.stringify(fotos));
+          carregarGaleria(); // só mostra após tudo estar pronto
+        }
+      };
+      reader.readAsDataURL(file);
+    });
+  });
+
+  window.onload = carregarGaleria;
+</script>
+
+</body>
+</html>

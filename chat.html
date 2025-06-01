@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <title>Usuário - Chat de Informações</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: 20px auto;
+      background: #fff;
+      padding: 20px;
+      border: 2px solid coral;
+      border-radius: 10px;
+    }
+    h2 {
+      color: red;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .mensagem {
+      background-color: #d4edda;
+      border-left: 5px solid blue;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Mensagens para Usuários</h2>
+
+  <div id="lista-mensagens"></div>
+
+  <script>
+    const listaMensagens = document.getElementById("lista-mensagens");
+
+    function mostrarMensagens() {
+      listaMensagens.innerHTML = "";
+      let mensagens = JSON.parse(localStorage.getItem("mensagens")) || [];
+      // Mostrar do mais antigo para o mais recente (ordem natural)
+      mensagens.forEach(m => {
+        const div = document.createElement("div");
+        div.className = "mensagem";
+        div.textContent = m.texto;
+        listaMensagens.appendChild(div);
+      });
+    }
+
+    window.onload = mostrarMensagens;
+  </script>
+  <script>
+  const listaMensagens = document.getElementById("lista-mensagens");
+
+  function mostrarMensagens() {
+    listaMensagens.innerHTML = "";
+    let mensagens = JSON.parse(localStorage.getItem("mensagens")) || [];
+
+    mensagens.forEach(m => {
+      const div = document.createElement("div");
+      div.className = "mensagem";
+      div.textContent = m.texto;
+      listaMensagens.appendChild(div);
+    });
+
+    // Marcar como lidas
+    if (mensagens.length > 0) {
+      const ultimaMensagem = mensagens[mensagens.length - 1].data;
+      localStorage.setItem("ultimaMensagemLida", ultimaMensagem);
+    }
+  }
+
+  window.onload = mostrarMensagens;
+</script>
+<script>
+  const listaMensagens = document.getElementById("lista-mensagens");
+
+  function mostrarMensagens() {
+    listaMensagens.innerHTML = "";
+    let mensagens = JSON.parse(localStorage.getItem("mensagens")) || [];
+
+    mensagens.forEach(m => {
+      const div = document.createElement("div");
+      div.className = "mensagem";
+      div.textContent = m.texto;
+      listaMensagens.appendChild(div);
+    });
+
+    // Marcar como lidas
+    if (mensagens.length > 0) {
+      const ultimaMensagem = mensagens[mensagens.length - 1].data;
+      localStorage.setItem("ultimaMensagemLida", ultimaMensagem);
+    }
+  }
+
+  window.onload = mostrarMensagens;
+</script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Galeria - Aluno</title>
+  <style>
+    body {
+      font-family: Arial;
+      padding: 20px;
+      background-color: #fff;
+    }
+
+    h2 {
+      text-align: center;
+      color: red;
+    }
+
+    .galeria {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr); /* Sempre 2 por linha */
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .galeria img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border: 3px solid aqua;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Galeria de Fotos</h2>
+
+  <div class="galeria" id="galeria"></div>
+
+  <script>
+    function mostrarGaleria() {
+      const galeria = document.getElementById("galeria");
+      galeria.innerHTML = "";
+
+      const fotos = JSON.parse(localStorage.getItem("galeriaFotos")) || [];
+
+      fotos.forEach(foto => {
+        const img = document.createElement("img");
+        img.src = foto;
+        galeria.appendChild(img);
+      });
+    }
+
+    window.onload = mostrarGaleria;
+  </script>
+
+</body>
+</html>
