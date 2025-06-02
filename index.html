@@ -1,106 +1,365 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <title>4027</title>
-  <link rel="stylesheet" href="style.css">
-  <style>
-    div {
-      background-color: coral;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 1000;
-      padding: 10px;
-      display: flex;
-      justify-content: space-around;
-      flex-wrap: wrap;
-    }
-
-    button {
-      background-color: aqua;
-      padding: 10px;
-      border: none;
-      border-radius:3px;
-    }
-
-    button a {
-      text-decoration: none;
-      color: black;
-      font-weight: bold;
-    }
-
-    .notificacao {
-      display: inline-block;
-      width: 10px;
-      height: 10px;
-      background-color: red;
-      border-radius: 50%;
-      margin-left: 5px;
-      vertical-align: middle;
-    }
-
-.dropdown-content {
-  display: none;
-  position: center;
-  background-color:  #0e0c11;
-  width: 100px;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Complexo 4027 - Seu Site Oficial</title>
+  <meta name="description" content="Conheça o Complexo 4027 - espaço moderno com tudo que você precisa.">
+  <link rel="stylesheet" href="julio.css.css" />
+</head>
+<header>
+  <header class="barr">
   
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
+  <h2>Bem-vindo ao <em style="color:aqua">complexo 4027</em></h2>
+  </header>
+
+</header>
+<body>
+  <style>
+   *{
+
+    padding: 0;
+
+    margin: 0;
+
+    box-sizing: border-box;
+
+ }
+
+.contrainer{
+
+    padding: 0 5%;
+
+    margin: 0 auto;
+
+    max-width: 1440px;
+
 }
 
-.dropdown-content a {
-  color:#007bff;
-  padding: 12px 16px;
+header{
+
+    background-color: rgb(43, 153, 226);
+
+    padding: 2%;
+
+
+
+}
+
+nav{
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin: 20px 10px;
+
+}
+
+.fundo{
+
+    background-color: coral;
+
+}
+
+* {
+
+  margin: 0;
+
+  padding: 0;
+
+  box-sizing: border-box;
+
+}
+
+
+
+body, html {
+
+  font-family: 'Segoe UI', sans-serif;
+
+  height: 100%;
+
+  background-color: #000;
+
+  color: #fff;
+
+}
+
+
+
+.hero {
+
+  background: url('https://source.unsplash.com/1600x900/?movie-theater') no-repeat center center/cover;
+
+  height: 100vh;
+
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+}
+
+
+
+.overlay {
+
+  background-color: rgba(0, 0, 0, 0.6);
+
+  width: 100%;
+
+  height: 100%;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+}
+
+
+
+.hero-content {
+
+  text-align: center;
+
+  padding: 2rem;
+
+}
+
+
+
+.hero-content h1 {
+
+  font-size: 3rem;
+
+  margin-bottom: 1rem;
+
+  color: #00bcd4;
+
+}
+
+
+
+.hero-content p {
+
+  font-size: 1.2rem;
+
+  margin-bottom: 2rem;
+
+}
+
+
+
+.btn {
+
+  padding: 0.8rem 1.6rem;
+
+  background-color: #00bcd4;
+
+  color: white;
+
   text-decoration: none;
-  display: block;
+
+  font-weight: bold;
+
+  border-radius: 5px;
+
+  transition: background 0.3s;
+
 }
 
-.dropdown-content a:hover {
-  background-color: #f1f1f1;
-  width:100%;
-  height:auto;
+
+
+.btn:hover {
+
+  background-color: #0097a7;
+
 }
 
-.dropdown:hover .dropdown-content {
-  display: block;
+
+
+* {
+
+  margin: 0;
+
+  padding: 0;
+
+  box-sizing: border-box;
+
 }
-  dropdoun{
-   width: 
+
+
+
+body, html {
+
+  height: 100%;
+
+  font-family: 'Segoe UI', sans-serif;
+
+  background-color: #205383;
+
+  color: rgb(15, 15, 15);
+
+  overflow: hidden;
+
+}
+
+
+
+
+
+.hero {
+
+  position: relative;
+
+  height: 100vh;
+
+  background: url('https://source.unsplash.com/1600x900/?cinema,movie') no-repeat center center/cover;
+
+  animation: zoomEffect 20s infinite alternate ease-in-out;
+
+}
+
+
+
+@keyframes zoomEffect {
+
+  0% {
+
+    background-size: 100%;
+
   }
 
-.dropdown:hover button {
-  background-color: #ddd;
-}
-.robotics-table {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 10px;
-  margin: 20px auto;
-  max-width: 1000px;
-  text-align: center;
-}
-    body {
-      margin: 0;
-      padding-top: 100px; /* espaço para o topo fixo */
-      font-family: Arial, sans-serif;
-    }
-  </style>
-</head>
-<body>
+  100% {
 
-  <div>
-    <p style="font-size: 25px;">🏫</p>   <h1> 4027</h1>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
-    <p style="font-size: 27px;"><a href="aluno.html">📆</a></p><br>
-    <center>
- &nbsp &nbsp &nbsp
-      <button><a href="sobre .html">Sobre nós</a></button>&nbsp &nbsp &nbsp
-      <button><a href="Galeria.html">Aluno</a></button>&nbsp &nbsp &nbsp
-      <button><a href="Galeria.html">Galeria</a></button>&nbsp &nbsp &nbsp
-      <button><a href="Secretaria .html">Secretaria</a></button>&nbsp &nbsp &nbsp
-         </center>
-  </div>
+    background-size: 110%;
+
+  }
+
+}
+
+
+
+.overlay {
+
+  background: rgba(250, 249, 249, 0.959);
+
+  height: 100%;
+
+  width: 100%;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+}
+
+
+
+.hero-content {
+
+  text-align: center;
+
+  animation: fadeIn 2s ease forwards;
+
+  opacity: 0;
+
+}
+
+
+
+@keyframes fadeIn {
+
+  to {
+
+    opacity: 1;
+
+    transform: translateY(0);
+
+  }
+
+}
+
+
+
+.hero-content h3 {
+
+  font-size: 2rem;
+
+  color: coral;
+
+  margin-bottom: 1rem;
+
+}
+
+
+
+.hero-content p {
+
+  font-size: 1.2rem;
+
+  margin-bottom: 2rem;
+
+}
+
+
+
+
+
+.btn {
+
+  background: linear-gradient(45deg, #1e4653, #3aa2c5);
+
+  padding: 0.8rem 1.6rem;
+
+  border: none;
+
+  color: white;
+
+  font-weight: bold;
+
+  border-radius: 30px;
+
+  text-decoration: none;
+
+  transition: transform 0.3s, box-shadow 0.3s;
+
+}
+
+
+
+.btn:hover {
+
+  transform: scale(1.05);
+
+  box-shadow: 0 0 15px #00bcd4;
+
+}
+  </style>
+  <section class="hero">
+    <div class="overlay">
+      <div class="hero-content">
+        <h3>Site do complexo 4027</h1>
+        <p>Aqui você pode se informar do Complexo 4027</p>
+        <a href="inicio.html" class="btn">Entrar no 4027</a><br><br><br>
+        <a href="login local.html" class="btn">Entrar como administrador</a>
+      </div>
+    </div>
+  </section>
+
 </body>
-</html> 
+<footer>
+    <h4>©2025, Wörd Litë - A inovação e atualização.</h4>
+</footer>
+      </html>
+      
