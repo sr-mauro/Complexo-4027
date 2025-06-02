@@ -1,199 +1,107 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Inicio</title>
-  <link rel="stylesheet" href="julio.css.css" />
-</head>
-<header>
-  <header class="barr">
-  
-  <h2>Bem-vindo ao <em style="color:aqua">complexo 4027</em></h2>
-  </header>
-
-</header>
-<body>
+  <meta charset="UTF-8">
+  <meta name="description" content="Conheça o Complexo 4027 - espaço moderno com tudo que você precisa.">
+  <title>4027</title>
+  <link rel="stylesheet" href="style.css">
   <style>
-   *{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
- }
-.contrainer{
-    padding: 0 5%;
-    margin: 0 auto;
-    max-width: 1440px;
-}
-header{
-    background-color: rgb(43, 153, 226);
-    padding: 2%;
+    div {
+      background-color: coral;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 10px;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+    }
 
-}
-nav{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 20px 10px;
-}
-.fundo{
-    background-color: coral;
-}
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+    button {
+      background-color: aqua;
+      padding: 10px;
+      border: none;
+      border-radius:3px;
+    }
 
-body, html {
-  font-family: 'Segoe UI', sans-serif;
-  height: 100%;
-  background-color: #000;
-  color: #fff;
-}
+    button a {
+      text-decoration: none;
+      color: black;
+      font-weight: bold;
+    }
 
-.hero {
-  background: url('https://source.unsplash.com/1600x900/?movie-theater') no-repeat center center/cover;
-  height: 100vh;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+    .notificacao {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      background-color: red;
+      border-radius: 50%;
+      margin-left: 5px;
+      vertical-align: middle;
+    }
 
-.overlay {
-  background-color: rgba(0, 0, 0, 0.6);
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.dropdown-content {
+  display: none;
+  position: center;
+  background-color:  #0e0c11;
+  width: 100px;
+  
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
 }
 
-.hero-content {
-  text-align: center;
-  padding: 2rem;
-}
-
-.hero-content h1 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-  color: #00bcd4;
-}
-
-.hero-content p {
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
-}
-
-.btn {
-  padding: 0.8rem 1.6rem;
-  background-color: #00bcd4;
-  color: white;
+.dropdown-content a {
+  color:#007bff;
+  padding: 12px 16px;
   text-decoration: none;
-  font-weight: bold;
-  border-radius: 5px;
-  transition: background 0.3s;
+  display: block;
 }
 
-.btn:hover {
-  background-color: #0097a7;
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+  width:100%;
+  height:auto;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+.dropdown:hover .dropdown-content {
+  display: block;
 }
-
-body, html {
-  height: 100%;
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #205383;
-  color: rgb(15, 15, 15);
-  overflow: hidden;
-}
-
-
-.hero {
-  position: relative;
-  height: 100vh;
-  background: url('https://source.unsplash.com/1600x900/?cinema,movie') no-repeat center center/cover;
-  animation: zoomEffect 20s infinite alternate ease-in-out;
-}
-
-@keyframes zoomEffect {
-  0% {
-    background-size: 100%;
+  dropdoun{
+   width: 
   }
-  100% {
-    background-size: 110%;
-  }
-}
 
-.overlay {
-  background: rgba(250, 249, 249, 0.959);
-  height: 100%;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.dropdown:hover button {
+  background-color: #ddd;
 }
-
-.hero-content {
+.robotics-table {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 10px;
+  margin: 20px auto;
+  max-width: 1000px;
   text-align: center;
-  animation: fadeIn 2s ease forwards;
-  opacity: 0;
 }
-
-@keyframes fadeIn {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.hero-content h1 {
-  font-size: 3rem;
-  color: coral;
-  margin-bottom: 1rem;
-}
-
-.hero-content p {
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
-}
-
-
-.btn {
-  background: linear-gradient(45deg, #1e4653, #3aa2c5);
-  padding: 0.8rem 1.6rem;
-  border: none;
-  color: white;
-  font-weight: bold;
-  border-radius: 30px;
-  text-decoration: none;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 15px #00bcd4;
-}
+    body {
+      margin: 0;
+      padding-top: 100px; /* espaço para o topo fixo */
+      font-family: Arial, sans-serif;
+    }
   </style>
-  <section class="hero">
-    <div class="overlay">
-      <div class="hero-content">
-        <h1>Site do 4027</h1>
-        <p>Aqui você pode se informar do Complexo Escolar 4027</p>
-        <a href="index.html" class="btn">Entrar no 4027</a><br><br><br>
-        <a href="login local.html" class="btn">Entrar como administrador</a>
-      </div>
-    </div>
-  </section>
+</head>
+<body>
 
+  <div>
+    <p style="font-size: 25px;">🏫</p>   <h1> 4027</h1>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+    <p style="font-size: 27px;"><a href="aluno.html">📆</a></p><br>
+    <center>
+ &nbsp &nbsp &nbsp
+      <button><a href="sobre .html">Sobre nós</a></button>&nbsp &nbsp &nbsp
+      <button><a href="Galeria.html">Aluno</a></button>&nbsp &nbsp &nbsp
+      <button><a href="Galeria.html">Galeria</a></button>&nbsp &nbsp &nbsp
+      <button><a href="Secretaria .html">Secretaria</a></button>&nbsp &nbsp &nbsp
+         </center>
+  </div>
 </body>
-<footer>
-    <h4>©2025, Wörd Litë - A inovação e atualização.</h4>
-</footer>
-</html>
+</html> 
